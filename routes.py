@@ -20,15 +20,15 @@ def operation():
     
     operation_status_of_hospitals= gpd.read_file('gdf_operation_status_of_hospitals.geojson')
     operation_status = round(operation_status_of_hospitals, 2)
-    operation_status.rename(columns={'size': 'Total_Hospitals','Yes':'%24/7','No':'% Not24/7' }, inplace=True)
+    operation_status.rename(columns={'size': 'Total_Hospitals','Yes':'% 24/7','No':'% Not 24/7' }, inplace=True)
     KEN=folium.Map([kc_latitude, kc_longitude], zoom_start=6,tiles="Stamen Terrain")
 
     choropleth= folium.Choropleth(
         geo_data= operation_status,
         data=operation_status,
-        columns=('OBJECTID','% Not24/7'),
+        columns=('OBJECTID','% Not 24/7'),
         key_on=('feature.properties.OBJECTID'),
-        fill_color=('OrRd'),
+        fill_color=('Greens'),
         fill_opacity=0.8,
         nan_fill_opacity=0.4,
         line_opacity=0.5,
@@ -56,7 +56,7 @@ def operation():
 
     # We add a layer controller. 
     folium.LayerControl(collapsed=False).add_to(KEN)
-    choropleth.geojson.add_child(folium.features.GeoJsonTooltip(['COUNTY','Total_Hospitals','% Not24/7','%24/7'], labels=True))
+    choropleth.geojson.add_child(folium.features.GeoJsonTooltip(['COUNTY','Total_Hospitals','% Not 24/7','% 24/7'], labels=True))
 
     kenya=KEN.save("templates/my_map")
     return render_template("my_map")
@@ -76,7 +76,7 @@ def community_h_U():
     data=status_of_community,
     columns=('OBJECTID','% Not_fully_functional'),
     key_on=('feature.properties.OBJECTID'),
-    fill_color=('OrRd'),
+    fill_color=('Purples'),
     fill_opacity=0.8,
     nan_fill_opacity=0.4,
     line_opacity=0.5,
@@ -219,7 +219,7 @@ def health_staff_perc_change():
         data=health_staff,
         columns=('OBJECTID','% change per 10000\population'),
         key_on=('feature.properties.OBJECTID'),
-        fill_color=('OrRd'),
+        fill_color=('BuPu'),
         fill_opacity=0.8,
         nan_fill_opacity=0.4,
         line_opacity=0.5,
@@ -267,7 +267,7 @@ def internet_users():
         data=net_users,
         columns=('OBJECTID','% No Use'),
         key_on=('feature.properties.OBJECTID'),
-        fill_color=('OrRd'),
+        fill_color=('PuBuGn'),
         fill_opacity=0.8,
         nan_fill_opacity=0.4,
         line_opacity=0.5,
@@ -314,7 +314,7 @@ def place_of_birth():
         data=df_place_of_birth,
         columns=('OBJECTID','% Non Health Facility'),
         key_on=('feature.properties.OBJECTID'),
-        fill_color=('OrRd'),
+        fill_color=('RdPu'),
         fill_opacity=0.8,
         nan_fill_opacity=0.4,
         line_opacity=0.5,
