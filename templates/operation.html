@@ -10,7 +10,12 @@
     <div class="col-md-4">
         <div class="contentArea">
             <h3>Operation status of hospitals</h3>
-            <p>Add your texts here</p>
+            <p><li> Access to health services at the time of need is critical for any population. However, this is not the case as it can be seen in the map.
+               <li> More than 70% of the counties have more than 80% of their hospitals not operating 24 hours daily, an implication of limited hospital access.
+               <li> Counties such as Lamu, Isiolo, and Tana River appear to have the least number of hospitals operating whole day, late night, on weekends, and public holidays which should be of great concern.
+    
+ 
+</p>
         </div>
     </div>
     <div class="col-md-8">
@@ -28,9 +33,31 @@
     <div class="graphsArea">
         <h3 class="text-center">Graphs</h3>
         <figure>
-            <img src="{{url_for('static',filename='files/Community Health Units.png')}}"/>
-            <figcaption class="text-center">Add text here</figcaption>
+            <img src="{{url_for('static',filename='files/Hospitals open whole day.png')}}"/>
+            
         </figure>
     </div>
+    <div class="graphsArea">
+        <h3 class="text-center">Graphs</h3>
+        <figure>
+            <img src="{{url_for('static',filename='files/Hospitals open late night.png)}}"/>
+            
+        </figure>
+    </div>
+     <div class="graphsArea">
+        <h3 class="text-center">Graphs</h3>
+        <figure>
+            <img src="{{url_for('static',filename='files/Hospitals open on weekend.png)}}"/>
+          
+        </figure>      
+    </div>
+    <div class="graphsArea">
+        <h3 class="text-center">Graphs</h3>
+        <figure>
+            <img src="{{url_for('static',filename='files/Hospitals on public holidays .png)}}"/>
+            <figcaption class="text-center"><li> A possible reason why most health facilities are not accessible at any time of the day, weekend, or public holidays is because of lack of core health workforce. Therefore, we recommend that the government makes a special arrangement where community health workers can assist in providing basic health services such as first aid.
+        </figure>     
+    </div>
+   
 </div>
 {%endblock%}
